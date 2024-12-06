@@ -23,11 +23,11 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "API_KEY", "\"c3bd89e29bd0480284e7d7fff10e9258\"")
+            buildConfigField("String", "API_KEY", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NGE2YTIxZGEwZTIyN2Y3YzRmMzdlZGE0ZWM4ZDc3MCIsIm5iZiI6MTYyMDU0NzUxOS41MDIsInN1YiI6IjYwOTc5N2JmNWVkOGU5MDAzZGQ2ZjZkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4oUO_gMWsF2WOlD0HfvzY87TYf2g7H4kQW8aepQ56zk\"")
         }
         release {
             isMinifyEnabled = false
-            buildConfigField("String", "API_KEY", "\"9a3a50279fca47939c23f604c68ebbe2\"")
+            buildConfigField("String", "API_KEY", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NGE2YTIxZGEwZTIyN2Y3YzRmMzdlZGE0ZWM4ZDc3MCIsIm5iZiI6MTYyMDU0NzUxOS41MDIsInN1YiI6IjYwOTc5N2JmNWVkOGU5MDAzZGQ2ZjZkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4oUO_gMWsF2WOlD0HfvzY87TYf2g7H4kQW8aepQ56zk\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
