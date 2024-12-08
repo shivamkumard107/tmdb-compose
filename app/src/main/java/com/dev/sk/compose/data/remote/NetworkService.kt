@@ -1,5 +1,6 @@
 package com.dev.sk.compose.data.remote
 
+import com.dev.sk.compose.data.model.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -7,8 +8,8 @@ import retrofit2.http.Query
 interface NetworkService {
 
     @GET("search/movie")
-    fun searchMovie(@Query("query") query: String)
+    fun searchMovie(@Query("query") query: String): MovieResponse
 
     @GET("trending/movie/{time_window}")
-    fun getTrendingMovies(@Path("time_window") timeWindow: String);
+    fun getTrendingMovies(@Path("time_window") timeWindow: String): MovieResponse
 }
