@@ -1,7 +1,8 @@
-package com.dev.sk.compose.data.remote
+package com.dev.sk.compose.source.remote
 
-import com.dev.sk.compose.data.local.MovieDataSource
 import com.dev.sk.compose.data.model.MovieResponse
+import com.dev.sk.compose.data.remote.NetworkService
+import com.dev.sk.compose.source.local.MovieDataSource
 import com.dev.sk.compose.utils.catchAsync
 
 class RemoteDataSource(private val networkService: NetworkService) : MovieDataSource {
@@ -26,5 +27,7 @@ class RemoteDataSource(private val networkService: NetworkService) : MovieDataSo
         }
         return Result.failure(Exception("Server Error"))
     }
+
+
 
 }
