@@ -20,13 +20,16 @@ class NetworkModule {
     fun getJson(): Json {
         return Json {
             isLenient = true
+            ignoreUnknownKeys = true
         }
     }
 
     @Provides
     fun provideOkHttp(authInterceptor: AuthHeaderInterceptor): OkHttpClient {
-        val loggingInterceptor = HttpLoggingInterceptor()
-        return OkHttpClient.Builder().addNetworkInterceptor(loggingInterceptor)
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        return OkHttpClient.Builder()
+            .addInterceptor(interceptor)
             .addInterceptor(authInterceptor).build()
     }
 
