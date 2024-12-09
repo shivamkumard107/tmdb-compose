@@ -1,7 +1,7 @@
 package com.dev.sk.compose.source.local
 
-import com.dev.sk.compose.data.model.Movie
-import com.dev.sk.compose.data.model.MovieResponse
+import com.dev.sk.compose.data.remote.model.Movie
+import com.dev.sk.compose.data.remote.model.MovieResponse
 
 
 interface MovieDataSource {
