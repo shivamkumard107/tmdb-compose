@@ -1,6 +1,6 @@
 package com.dev.sk.compose.ui
 
-import com.dev.sk.compose.ui.model.TrendingMovies
+import com.dev.sk.compose.repository.model.TrendingMovies
 
 sealed class UiState {
     data object Loading : UiState()
