@@ -10,4 +10,3 @@ suspend fun <T> catchAsync(apiCall: ApiCall<T>): Result<T> {
         return Result.failure(e)
     }
 }
-
