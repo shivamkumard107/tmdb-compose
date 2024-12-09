@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -22,12 +24,14 @@ android {
     }
 
     buildTypes {
+        val key: String = gradleLocalProperties(rootDir, providers).getProperty("API_KEY")
+
         debug {
-            buildConfigField("String", "API_KEY", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NGE2YTIxZGEwZTIyN2Y3YzRmMzdlZGE0ZWM4ZDc3MCIsIm5iZiI6MTYyMDU0NzUxOS41MDIsInN1YiI6IjYwOTc5N2JmNWVkOGU5MDAzZGQ2ZjZkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4oUO_gMWsF2WOlD0HfvzY87TYf2g7H4kQW8aepQ56zk\"")
+            buildConfigField("String", "API_KEY", "\"$key\"")
         }
         release {
             isMinifyEnabled = false
-            buildConfigField("String", "API_KEY", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NGE2YTIxZGEwZTIyN2Y3YzRmMzdlZGE0ZWM4ZDc3MCIsIm5iZiI6MTYyMDU0NzUxOS41MDIsInN1YiI6IjYwOTc5N2JmNWVkOGU5MDAzZGQ2ZjZkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4oUO_gMWsF2WOlD0HfvzY87TYf2g7H4kQW8aepQ56zk\"")
+            buildConfigField("String", "API_KEY", "\"$key\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
