@@ -64,6 +64,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.junit)
+    implementation(libs.androidx.ui.test.junit4)
+    implementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.ui.tooling)
+    implementation(libs.androidx.ui.graphics)
 
 
     // retrofit
@@ -112,7 +120,6 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.coil.compose)
     androidTestImplementation(platform(libs.androidx.compose.bom))
-
 }
 
 kapt {

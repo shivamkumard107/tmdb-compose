@@ -81,34 +81,11 @@ class DefaultMovieRepository @Inject constructor(
             posterPath = this.posterPath,
             voteAverage = this.voteAverage,
             voteCount = this.voteCount,
-            genres = this.genres.map { Genre(it.id, it.name) },
             adult = this.adult,
             backdropPath = this.backdropPath,
-            belongsToCollection = this.belongsToCollection,
-            budget = this.budget,
-            homepage = this.homepage,
-            imdbId = this.imdbId,
-            originCountry = this.originCountry,
             originalLanguage = this.originalLanguage,
             originalTitle = this.originalTitle,
             popularity = this.popularity,
-            productionCompanies = this.productionCompanies.map {
-                ProductionCompany(
-                    it.id,
-                    it.name
-                )
-            },
-            productionCountries = this.productionCountries.map {
-                ProductionCountry(
-                    null,
-                    it.name
-                )
-            },
-            revenue = this.revenue,
-            runtime = this.runtime,
-            spokenLanguages = this.spokenLanguages.map { SpokenLanguage(it.iso6391, it.name) },
-            status = this.status,
-            tagline = this.tagline,
             video = this.video
         )
     }
