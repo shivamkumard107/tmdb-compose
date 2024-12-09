@@ -2,6 +2,7 @@ package com.dev.sk.compose.source.local
 
 import com.dev.sk.compose.data.remote.model.MovieDTO
 import com.dev.sk.compose.data.remote.model.MovieResponseDTO
+import javax.inject.Inject
 
 
 interface MovieDataSource {
@@ -10,7 +11,7 @@ interface MovieDataSource {
     suspend fun getMovieDetails(movieId: Int): Result<MovieDTO>
 }
 
-class LocalDataSource : MovieDataSource {
+class LocalDataSource @Inject constructor() : MovieDataSource {
 
     override suspend fun getTrendingMovies(timeWindow: String): Result<MovieResponseDTO> {
         TODO()

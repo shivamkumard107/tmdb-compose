@@ -5,12 +5,13 @@ import com.dev.sk.compose.data.remote.model.MovieDTO
 import com.dev.sk.compose.data.remote.model.MovieResponseDTO
 import com.dev.sk.compose.source.local.MovieDataSource
 import com.dev.sk.compose.utils.catchAsync
+import javax.inject.Inject
 
 interface RemoteDataSource : MovieDataSource {
     suspend fun searchMovie(query: String): Result<MovieResponseDTO>
 }
 
-class DefaultRemoteDataSource(private val networkService: NetworkService) : RemoteDataSource {
+class DefaultRemoteDataSource @Inject constructor(private val networkService: NetworkService) : RemoteDataSource {
 
     override suspend fun searchMovie(query: String): Result<MovieResponseDTO> {
         val response = catchAsync { networkService.searchMovie(query) }
