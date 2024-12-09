@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 
 interface MovieRepository {
-    suspend fun getTrendingMovies(timeWindow: String): Flow<DataState<List<Movie>>>
+    suspend fun getTrendingMovies(timeWindow: String = "day"): Flow<DataState<List<Movie>>>
 
     suspend fun getMovieDetails(id: Int): Flow<DataState<Movie>>
 

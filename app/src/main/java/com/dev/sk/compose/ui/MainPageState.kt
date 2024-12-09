@@ -1,6 +1,6 @@
 package com.dev.sk.compose.ui
 
-import com.dev.sk.compose.repository.model.TrendingMovies
+import com.dev.sk.compose.repository.model.Movie
 
 sealed class UiState {
     data object Loading : UiState()
@@ -10,5 +10,5 @@ sealed class UiState {
 
 data class MoviesUiState(
     val uiState: UiState = UiState.Loading,
-    val list: List<TrendingMovies>? = null
+    val list: List<Movie>? = null
 )
