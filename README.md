@@ -1,6 +1,3 @@
-Here’s a comprehensive README for your project on GitHub:
-
----
 
 # Trending Movies App
 
@@ -71,8 +68,12 @@ The main screen displays a list of trending movies fetched from the TMDB API. Th
 ### Search Functionality
 A search bar is provided at the top of the movie list screen. Users can type the name of a movie, and the app will filter the displayed movies accordingly.
 
+<img src="https://github.com/user-attachments/assets/6cde9cfe-c50e-48f9-8868-3a7f9d1f8fac" width="200" height="auto" />
+
 ### Movie Details Screen
 When a user clicks on a movie, a detail screen is shown, displaying more information about the movie, such as the description, release date, and an image.
+
+<img src="https://github.com/user-attachments/assets/846b07e0-ada1-463b-8626-5e6ba69308a7" width="200" height="auto" />
 
 ### Loading and Error States
 
