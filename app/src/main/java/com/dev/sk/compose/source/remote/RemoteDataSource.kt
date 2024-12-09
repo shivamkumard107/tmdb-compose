@@ -1,11 +1,16 @@
 package com.dev.sk.compose.source.remote
 
+import com.dev.sk.compose.data.model.Movie
 import com.dev.sk.compose.data.model.MovieResponse
 import com.dev.sk.compose.data.remote.NetworkService
 import com.dev.sk.compose.source.local.MovieDataSource
 import com.dev.sk.compose.utils.catchAsync
 
-class RemoteDataSource(private val networkService: NetworkService) : MovieDataSource {
+interface RemoteDataSource : MovieDataSource {
+    suspend fun searchMovie(query: String): Result<MovieResponse>
+}
+
+class DefaultRemoteDataSource(private val networkService: NetworkService) : RemoteDataSource {
 
     override suspend fun searchMovie(query: String): Result<MovieResponse> {
         val response = catchAsync { networkService.searchMovie(query) }
@@ -28,6 +33,9 @@ class RemoteDataSource(private val networkService: NetworkService) : MovieDataSo
         return Result.failure(Exception("Server Error"))
     }
 
+    override suspend fun getMovieDetails(movieId: Int): Result<Movie> {
+        TODO("Not yet implemented")
+    }
 
 
 }

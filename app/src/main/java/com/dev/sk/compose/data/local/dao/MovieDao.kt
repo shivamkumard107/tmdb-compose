@@ -14,7 +14,7 @@ interface MovieDao {
     suspend fun insert(vararg entity: MovieEntity)
 
     @Query("SELECT * FROM trending_movies")
-    suspend fun getTrendingMovies(id: String): List<MovieEntity>
+    suspend fun getTrendingMovies(): List<MovieEntity>
 
     @Query("DELETE FROM trending_movies")
     suspend fun deleteAllMovies()
