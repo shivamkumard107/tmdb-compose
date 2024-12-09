@@ -1,5 +1,6 @@
 package com.dev.sk.compose.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dev.sk.compose.repository.MovieRepository
@@ -15,6 +16,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.math.log
 
 @OptIn(FlowPreview::class)
 @HiltViewModel
@@ -50,9 +52,10 @@ class MainViewModel @Inject constructor(private val movieRepository: MovieReposi
     private fun getMovies() {
         viewModelScope.launch(Dispatchers.IO) {
             movieRepository.getTrendingMovies()
-                .onEach { result ->
+                .collect { result ->
                     when (result) {
-                        is DataState.Error -> _state.update {
+                        is DataState.Error ->
+                        _state.update {
                             it.copy(
                                 uiState = UiState.Error(
                                     "${STATE_ERROR_MESSAGE}\n" +
@@ -78,10 +81,11 @@ class MainViewModel @Inject constructor(private val movieRepository: MovieReposi
     private fun searchMovies(query: String) {
         viewModelScope.launch(Dispatchers.IO) {
             movieRepository.searchMovie(query)
-                .onEach { result ->
+                .collect { result ->
                     _isSearching.update { result is DataState.Loading }
                     when (result) {
                         is DataState.Error -> _state.update {
+                            Log.d(TAG, "getMovies: ${result.throwable.localizedMessage}")
                             it.copy(
                                 list = result.data ?: emptyList(),
                                 uiState = UiState.Error("$STATE_ERROR_MESSAGE ${result.throwable}"),
@@ -104,6 +108,7 @@ class MainViewModel @Inject constructor(private val movieRepository: MovieReposi
     }
 
     companion object {
+        private const val TAG = "MainViewModel"
         private const val DEBOUNCE_TIMEOUT: Long = 500L
         private const val STATE_ERROR_MESSAGE = "An unexpected error occurred."
     }
